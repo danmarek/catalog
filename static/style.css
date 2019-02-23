@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Style the body */
+body {
+  margin: 0;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position.
+ It is positioned relative until a given offset position is met in the viewport
+ - then it "sticks" in place (like position:fixed).
+ The sticky value is not supported in IE or Edge 15 and earlier versions.
+ However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  box-shadow: 0 0 0.25em 0 #332;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover #ddd */
+.navbar a:hover {
+  background-color: #e76278;
+  color: white;
+}
+
+/* Active/current link */
+.navbar a.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Column container */
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+.category {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+.category:hover {
+	background-color: #e76278;
+}
+
+.category a {
+    text-decoration: none;
+}
+
+/* #ffebcd;  almond */
+.item {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+.item a {
+    text-decoration: none;
+}
+
+.item:hover {
+	background-color: #e76278;
+}
+
+h2 {
+  color: black;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  display: none;
+}
+
+#signinButton {
+  padding: 20px;
+  float: right;
+}
+
+.mylog {
+  padding: 20px;
+  text-align: center;
+  background: blanchedalmond;
+}
+
+/* Main column */
+.pane {
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.item_detail {
+  text-align: justify;
+  background-color: #dddddd;
+  width: 100%;
+  padding: 20px;
+}
+
+.button {
+	background-color: #666;
+	box-shadow: none;
+	color: #ffffff;
+	text-decoration: none;
+    border-radius: 4px;
+    border: 0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 300;
+    height: 3em;
+    line-height: 3em;
+    padding: 0 2.25em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.button:hover {
+	background-color: #e76278;
+}
+
+.button:active {
+	background-color: #666;
+}
+
+input[type="text"], select {
+	height: 3em;
+}
+
+input[type="submit"] {
+	display: inline-block;
+	font-size: medium;
+	height: 3em;
+}
+
+textarea {
+	height: 7em;
+}
+
+input[type="text"], select, textarea {
+	transition: border-color 0.2s ease-in-out;
+    border-radius: 4px;
+    border: solid 1px rgba(255, 255, 255, 0.3);
+	background: white;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* Responsive layout - when the screen is less than 700px wide,
+make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide,
+make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}

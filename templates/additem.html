@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row">
+	<div class="side">
+	</div>
+	<div class="main">
+		<h1>Add Item</h1>
+            <form action="{{ url_for('add_item') }}" method = 'post'>
+                <div class="item_detail">
+                    <p>Name:</p>
+                    <input type='text' size='40' name='name' required>
+                </div>
+			    <br>
+                <div class="item_detail">
+                    <p>Description:</p>
+                    <textarea name="description" rows="5" cols="80" required></textarea>
+                </div>
+                <br>
+                <div class="item_detail">
+                <p>Category:</p>
+                    <select name="category_id" required>
+                        <option value="">- Category -</option>
+                        {% for category in categories %}
+                            {% if category_id == category.id %}
+                                <option value={{category.id}} selected>{{category.name}}</option>
+                            {% else %}
+                                <option value={{category.id}}>{{category.name}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+		        <br>
+                <input type="submit" class="button" value="Save">
+            </form>
+	</div>
+</div>
+{% endblock %}

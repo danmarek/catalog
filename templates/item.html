@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row">
+	<div class="side">
+		<h1>Category > {{item.category.name}}</h1>
+			<div class="category">
+				<a href="{{url_for('show_category', category_id=item.category.id)}}"><h2>{{item.category.name}}</h2></a>
+			</div>
+			<hr>
+	</div>
+	<div class="main">
+		<h1>Item Details</h1>
+			<div class="item_detail">
+				<p><h2>{{item.name}}</h2></p>
+			</div>
+			<br>
+			<div class="item_detail">
+				<p><h2>{{item.description}}</h2></p>
+			</div>
+
+		{%if item.user_id == session['user_id'] %}
+		<br>
+		<a href = "{{ url_for('edit_item', item_id=item.id)}}" class="button">Edit</a>
+		<a href = "{{ url_for('delete_item', item_id=item.id)}}" class="button">Delete</a>
+		{% endif %}
+
+	</div>
+</div>
+{% endblock %}

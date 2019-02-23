@@ -1,0 +1,25 @@
+<div class="navbar">
+	<a href="{{url_for('show_catalog')}}" class="active">Catalog</a>
+	{% with messagess = get_flashed_messages() %}
+	  {% if messagess %}
+		<a>
+		{% for messages in messagess %}
+		  <span>{{ messages }}</span>
+		{% endfor %}
+		</a>
+	  {% endif %}
+	{% endwith %}
+	{%if 'user_id' not in session %}
+		<a href="{{url_for('show_login')}}" class="right">Login</a>
+	{% else %}
+		<a href="{{url_for('disconnect')}}" class="right">Logout</a>
+	{% endif %}
+	{%if 'username' in session %}
+		{%if category %}
+		<a href="{{url_for('add_item', category_id = category.id)}}" class="right">Add Item</a>
+		{% else %}
+	    <a href="{{url_for('add_item')}}" class="right">Add Item</a>
+		{% endif %}
+	{% endif %}
+
+</div>
